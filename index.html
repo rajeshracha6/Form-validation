@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let para=document.createElement("h3");
+      let div = document.createElement("div");
+      document.body.appendChild(div);
+      //   div.style.border="solid 2px";
+      let form = document.createElement("form");
+      //   form.style.border="solid 2px";
+      div.appendChild(form); // Assuming you want to append the div here
+      // div.appendChild(para);
+      // para.innerHTML="98657489847494"
+
+      let inp = document.createElement("input");
+      inp.setAttribute("pLaceholder", "User name");
+      form.appendChild(inp);
+
+      let span = document.createElement("span");
+      form.appendChild(span);
+
+      // let sub=document.createElement("input");
+      // sub.setAttribute("type","submit");
+      // form.appendChild(sub);
+
+      let inp1 = document.createElement("input");
+      inp1.setAttribute("placeholder", "Email");
+      form.appendChild(inp1).value;
+
+      let inp2 = document.createElement("input");
+      inp2.setAttribute("placeholder", "password");
+      form.appendChild(inp2).value;
+
+      let inp3 = document.createElement("input");
+      inp3.setAttribute("placeholder", "Confirm password");
+      form.appendChild(inp3).value;
+
+      let inp4 = document.createElement("input");
+      inp4.setAttribute("type", "checkbox");
+      form.appendChild(inp4).value;
+
+      let agree = document.createElement("p"); // "para" should be replaced with "p" for a paragraph
+      agree.innerHTML = "I agree to the terms and conditions"; // Set the innerHTML correctly
+      form.appendChild(agree).value; // Append the paragraph to the form
+
+      let inp5 = document.createElement("input");
+      inp5.setAttribute("type", "submit");
+      form.appendChild(inp5).value;
+
+      //   let pattern = document.createElement("pattern");
+      //   pattern.appendChild();
+      //   form.appendChild(inp);
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // para.innerText=inp.value;
+        //   e.stopImmediatePropagation();
+
+        // let inp = document.createElement("p");
+        // inp.innerText = `User name: ${inp.value}`;
+        // form.appendChild(inp);
+
+        reg = /^[A-Za-z." "]{5,10}/;
+        hh = inp.value;
+        if (reg.test(inp.value)) {
+          //   result.style.color = "green";
+          //   result.textContent = `You entered: ${hh}`;
+          document.write(` ${hh}`);
+          //   result.style.color = "green";
+          //   result.textContent = `You entered: ${hh}`;
+
+          // console.log(inp.value)
+        } else {
+          span.innerHTML = "please enter a correct characters";
+          span.style.color = "red";
+          //   result.textContent =
+          //     "Please enter 5-10 alphabetic characters only (letters and spaces).";
+        }
+
+        reg = /[A-Z][a-z][@]/;
+
+        Email = inp1.value;
+        method = reg.test(inp1.value);
+        if (method) {
+          document.write(` ${Email}`);
+        } else {
+          span.innerHTML = "please enter good characters";
+          span.style.color = "red";
+        }
+
+        reg = /(?=.*[A-Z])(?=.*[a-z])(?=.*[@$!#%&*])/;
+
+        password = inp2.value;
+        method = reg.test(inp2.value);
+        if (method) {
+          document.write(` ${password}`);
+        } else {
+          span.innerHTML = "please enter good characters";
+          span.style.color = "red";
+        }
+
+        // }
+      });
+    </script>
+  </body>
+</html>
